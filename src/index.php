@@ -1,31 +1,30 @@
-<?php include_once("common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Crouch Utility</title>
-    <?php include("common/html/head.html"); ?>
+	<title>Overflow</title>
+    <?php include("/common/html/head.html"); ?>
 </head>
 
 <body>
 
 	<!--Header-->
     <div class="col-10 header">
-        <a href="http://religionandstory.webutu.com/utility/"><div class="title center clickable">Crouch Utility</div></a>
+        <a href="http://overflow.religionandstory.com/"><div class="title center clickable">R&amp;S Overflow</div></a>
     </div>
 
     <!--Menu-->
 	<div class="col-10 tiles">
-        <div class="col-3r tile center"><a href="http://religionandstory.webutu.com/utility/imdb/">
-            <img src="common/images/imdb.jpg">
-            <div>IMDb Helper</div>
+        <div class="col-3r tile center"><a href="imdb">
+            <img src="imdb/images/imdb.jpg">
+            <div>IMDb Converter</div>
         </a></div>
-        <div class="col-3r tile center"><a href="http://religionandstory.webutu.com/utility/ratings/">
-            <img src="common/images/ratings.jpg">
-            <div>Daniel&rsquo;s Ratings</div>
+        <div class="col-3r tile center"><a href="scripture">
+            <img src="scripture/images/scripture.jpg">
+            <div>Scripture Challenge</div>
         </a></div>
-        <div class="col-3r tile center"><a href="http://religionandstory.webutu.com/utility/seven/">
-            <img src="common/images/seven.jpg">
-            <div>Seven Dimensions</div>
+        <div class="col-3r tile center"><a href="poker">
+            <img src="poker/images/poker.jpg">
+            <div>Texas Hold&rsquo;em</div>
         </a></div>
     </div>
 

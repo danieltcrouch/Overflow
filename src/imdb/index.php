@@ -1,20 +1,19 @@
-<?php include_once($_SERVER["DOCUMENT_ROOT"] . "/utility/common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IMDb Helper</title>
-    <?php include($BASE_UTL_PATH . "/common/html/head.html"); ?>
-    <script src="http://religionandstory.webutu.com/utility/imdb/javascript/imdb.js"></script>
+	<title>IMDb Converter</title>
+    <?php include("/common/html/head.html"); ?>
+    <script src="/javascript/imdb.js"></script>
 </head>
 
 <body>
 
     <!--Header-->
-    <?php include($BASE_UTL_PATH . "/common/html/header.html"); ?>
+    <?php //include($BASE_UTL_PATH . "/common/html/header.html"); ?>
     <div class="col-10 header">
         <div class="title center"><span class="clickable">
-            IMDb Helper
-            <img style="width: .5em; padding-bottom: .25em" src="http://religionandstory.webutu.com/utility/common/images/question-mark.png" alt="help">
+            IMDb Converter
+            <img style="width: .5em; padding-bottom: .25em" src="/common/images/question-mark.png" alt="help">
         </span></div>
         <div id="instructions" style="display: none">
             The IMDb Helper associates movie titles with the unique IDs provided by IMDb.
@@ -47,6 +46,6 @@
     </div>
 
 </body>
-<?php include($BASE_UTL_PATH . "/common/html/modal.html"); ?>
-<?php include($BASE_UTL_PATH . "/common/html/toaster.html"); ?>
+<?php include("/common/html/modal.html"); ?>
+<?php include("/common/html/toaster.html"); ?>
 </html>
