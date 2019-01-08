@@ -1,19 +1,20 @@
+<?php include("$_SERVER[DOCUMENT_ROOT]/common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Scripture Challenge</title>
-    <?php include("$_SERVER[DOCUMENT_ROOT]/../common/html/head.html"); ?>
+    <?php includeHeadInfo(); ?>
     <script src="javascript/game.js"></script>
 </head>
 
 <body>
 
 	<!--Header-->
-    <?php include($BASE_PATH . "/common/html/header.html"); ?>
+    <?php includeHeader(); ?>
     <div class="col-10 header">
         <div class="title center"><span class="clickable">
                 Scripture Challenge
-            <img style="width: .5em; padding-bottom: .25em" src="http://religionandstory.webutu.com/utility/common/images/question-mark.png" alt="help">
+                <img style="width: .5em; padding-bottom: .25em" src="http://religionandstory.com/common/images/question-mark.png" alt="help">
         </span></div>
         <div id="instructions" style="display: none">
             <div style="text-align: left">
@@ -93,6 +94,5 @@
         startGame();
     }
 </script>
-<?php include($BASE_PATH . "/common/html/modal.html"); ?>
-<?php include($BASE_PATH . "/common/html/toaster.html"); ?>
+<?php includeModals(); ?>
 </html>

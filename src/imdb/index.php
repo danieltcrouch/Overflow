@@ -1,19 +1,20 @@
+<?php include("$_SERVER[DOCUMENT_ROOT]/common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>IMDb Converter</title>
-    <?php include("$_SERVER[DOCUMENT_ROOT]/../common/html/head.html"); ?>
-    <script src="/javascript/imdb.js"></script>
+    <?php includeHeadInfo(); ?>
+    <script src="javascript/imdb.js"></script>
 </head>
 
 <body>
 
     <!--Header-->
-    <?php //include($BASE_UTL_PATH . "/common/html/header.html"); ?>
+    <?php includeHeader(); ?>
     <div class="col-10 header">
         <div class="title center"><span class="clickable">
             IMDb Converter
-            <img style="width: .5em; padding-bottom: .25em" src="/common/images/question-mark.png" alt="help">
+            <img style="width: .5em; padding-bottom: .25em" src="http://religionandstory.com/common/images/question-mark.png" alt="help">
         </span></div>
         <div id="instructions" style="display: none">
             The IMDb Helper associates movie titles with the unique IDs provided by IMDb.
@@ -46,6 +47,5 @@
     </div>
 
 </body>
-<?php include("/common/html/modal.html"); ?>
-<?php include("/common/html/toaster.html"); ?>
+<?php includeModals(); ?>
 </html>

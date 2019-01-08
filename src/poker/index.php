@@ -1,14 +1,15 @@
+<?php include("$_SERVER[DOCUMENT_ROOT]/common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Poker</title>
-    <?php include("$_SERVER[DOCUMENT_ROOT]/../common/html/head.html"); ?>
+    <?php includeHeadInfo(); ?>
 </head>
 
 <body>
 
 	<!--Header-->
-    <?php //include($BASE_UTL_PATH . "/common/html/header.html"); ?>
+    <?php includeHeader(); ?>
     <div class="col-10 header">
         <div class="title center"><span class="clickable">
                 Texas Hold&rsquo;em
@@ -27,6 +28,5 @@
     </div>
 
 </body>
-<?php include("/common/html/modal.html"); ?>
-<?php include("/common/html/toaster.html"); ?>
+<?php includeModals(); ?>
 </html>

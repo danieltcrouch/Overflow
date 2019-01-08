@@ -1,8 +1,9 @@
+<?php include("$_SERVER[DOCUMENT_ROOT]/common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Overflow</title>
-    <?php include("$_SERVER[DOCUMENT_ROOT]/../common/html/head.html"); ?>
+    <?php includeHeadInfo(); ?>
 </head>
 
 <body>
