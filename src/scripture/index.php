@@ -14,7 +14,7 @@
     <div class="col-10 header">
         <div class="title center"><span class="clickable">
                 Scripture Challenge
-                <img style="width: .5em; padding-bottom: .25em" src="http://religionandstory.com/common/images/question-mark.png" alt="help">
+                <img style="width: .5em; padding-bottom: .25em" src="<?php getHelpImage() ?>" alt="help">
         </span></div>
         <div id="instructions" style="display: none">
             <div style="text-align: left">

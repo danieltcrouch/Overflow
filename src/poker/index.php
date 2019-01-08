@@ -13,7 +13,7 @@
     <div class="col-10 header">
         <div class="title center"><span class="clickable">
                 Texas Hold&rsquo;em
-            <img style="width: .5em; padding-bottom: .25em" src="/common/images/question-mark.png" alt="help">
+            <img style="width: .5em; padding-bottom: .25em" src="<?php getHelpImage() ?>" alt="help">
         </span></div>
         <div id="instructions" style="display: none">
             ...
@@ -24,7 +24,7 @@
     <div class="col-10 main">
         <div class="title center">This Page is under construction</div>
         <br />
-        <div class="center"><img src="https://image.freepik.com/free-icon/traffic-cone-signal-tool-for-traffic_318-62079.jpg" width="300px"></div>
+        <div class="center"><img src="<?php getConstructionImage() ?>" width="300px"></div>
     </div>
 
 </body>

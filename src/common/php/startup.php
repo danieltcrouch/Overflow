@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $project = "overflow";
 $homeUrl = "http://overflow.religionandstory.com";
 
@@ -10,7 +12,8 @@ function includeHeadInfo()
 
 function includeHeader()
 {
-    include("$_SERVER[DOCUMENT_ROOT]/../common/html/header.html");
+    global $homeUrl;
+    include("$_SERVER[DOCUMENT_ROOT]/../common/html/header.php");
 }
 
 function includeModals()
@@ -21,7 +24,7 @@ function includeModals()
 
 function getHelpImage()
 {
-    echo "$_SERVER[DOCUMENT_ROOT]/../common/images/question-mark.png";
+    echo "http://religionandstory.com/common/images/question-mark.png";
 }
 
 function getConstructionImage()
