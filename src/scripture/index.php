@@ -1,9 +1,8 @@
-<?php include_once($_SERVER["DOCUMENT_ROOT"] . "/rns/common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Scripture Challenge</title>
-    <?php include($BASE_PATH . "/common/html/head.html"); ?>
+    <?php include("$_SERVER[DOCUMENT_ROOT]/../common/html/head.html"); ?>
     <script src="javascript/game.js"></script>
 </head>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Overflow</title>
-    <?php include("/common/html/head.html"); ?>
+    <?php include("$_SERVER[DOCUMENT_ROOT]/../common/html/head.html"); ?>
 </head>
 
 <body>

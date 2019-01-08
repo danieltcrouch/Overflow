@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>IMDb Converter</title>
-    <?php include("/common/html/head.html"); ?>
+    <?php include("$_SERVER[DOCUMENT_ROOT]/../common/html/head.html"); ?>
     <script src="/javascript/imdb.js"></script>
 </head>
 
