@@ -26,7 +26,7 @@
     function showAllScores()
    	{
    		$.post(
-   			"utility/database.php",
+   			"php/database.php",
    			{ action: "getAllScores" },
             showAllScoresCallback
    		);

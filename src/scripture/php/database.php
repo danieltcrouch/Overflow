@@ -86,14 +86,14 @@ function saveScore( $name, $score, $email )
 function getBibles()
 {
 	return [
-	    "kjv" => file("resources/KJV.txt"),
-        "niv" => file("resources/NIV.txt")
+	    "kjv" => file("http://overflow.religionandstory.com/scripture/resources/KJV.txt"),
+        "niv" => file("http://overflow.religionandstory.com/scripture/resources/NIV.txt")
 	];
 }
 
 function getDuplicates()
 {
-	return file("resources/duplicates.txt");
+	return file("http://overflow.religionandstory.com/scripture/resources/duplicates.txt");
 }
 
 function sendEmail( $emails )
