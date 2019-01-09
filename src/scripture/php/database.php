@@ -2,7 +2,7 @@
 
 function getAllScores()
 {
-	$mysqli = new mysqli( 'localhost', 'id511081_dcrouch1', '1corinthians39', 'id511081_main' );
+	$mysqli = new mysqli( 'localhost', 'religiv3_admin', '1corinthians3:9', 'religiv3_overflow' );
 
 	$scores = array();
 	$result = $mysqli->query( "SELECT name, score FROM sc_highScores ORDER BY score DESC " );
@@ -20,7 +20,7 @@ function getAllScores()
 
 function getScores()
 {
-	$mysqli = new mysqli( 'localhost', 'id511081_dcrouch1', '1corinthians39', 'id511081_main' );
+	$mysqli = new mysqli( 'localhost', 'religiv3_admin', '1corinthians3:9', 'religiv3_overflow' );
 
 	$scores = array();
 	$result = $mysqli->query( "SELECT name, score FROM sc_highScores ORDER BY score DESC LIMIT 10" );
@@ -38,7 +38,7 @@ function getScores()
 
 function getLowScore()
 {
-	$mysqli = new mysqli( 'localhost', 'id511081_dcrouch1', '1corinthians39', 'id511081_main' );
+	$mysqli = new mysqli( 'localhost', 'religiv3_admin', '1corinthians3:9', 'religiv3_overflow' );
 
 	$lowScore = 0;
 	$result = $mysqli->query( "SELECT score FROM sc_highScores ORDER BY score DESC LIMIT 9, 1 " );
@@ -55,7 +55,7 @@ function getLowScore()
 
 function getHighScoreInfo()
 {
-	$mysqli = new mysqli( 'localhost', 'id511081_dcrouch1', '1corinthians39', 'id511081_main' );
+	$mysqli = new mysqli( 'localhost', 'religiv3_admin', '1corinthians3:9', 'religiv3_overflow' );
 
 	$highScoreInfo = array();
 	$result = $mysqli->query( "SELECT name, score, email 
@@ -75,7 +75,7 @@ function getHighScoreInfo()
 
 function saveScore( $name, $score, $email )
 {
-	$mysqli = new mysqli( 'localhost', 'id511081_dcrouch1', '1corinthians39', 'id511081_main' );
+	$mysqli = new mysqli( 'localhost', 'religiv3_admin', '1corinthians3:9', 'religiv3_overflow' );
 
 	$email = isset( $email ) ? $email : "";
 	$mysqli->query( "INSERT INTO sc_highScores ( name, score, email ) VALUES ( '" . $name . "', " . $score . ", '" . $email . "')" );
@@ -86,14 +86,14 @@ function saveScore( $name, $score, $email )
 function getBibles()
 {
 	return [
-	    "kjv" => file("http://religionandstory.webutu.com/rns/scriptureChallenge/resources/KJV.txt"),
-        "niv" => file("http://religionandstory.webutu.com/rns/scriptureChallenge/resources/NIV.txt")
+	    "kjv" => file("resources/KJV.txt"),
+        "niv" => file("resources/NIV.txt")
 	];
 }
 
 function getDuplicates()
 {
-	return file("http://religionandstory.webutu.com/rns/scriptureChallenge/resources/duplicates.txt");
+	return file("resources/duplicates.txt");
 }
 
 function sendEmail( $emails )
@@ -102,12 +102,12 @@ function sendEmail( $emails )
 
     $to = implode( ',', $addressList );
     $subject = "Scripture Challenge Game";
-    $message = "<p>Hey, someone has matched or surpassed your high score! Go <a href='http://religionandstory.webutu.com/rns/scriptureChallenge/'>here</a> to defend your honor!</p>";
+    $message = "<p>Hey, someone has matched or surpassed your high score! Go <a href='http://overflow.religionandstory.com/scripture/'>here</a> to defend your honor!</p>";
     $message = wordwrap($message, 70);
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: ReligionAndStory<noreply@religionandstory.webutu.com>" . "\r\n" .
-        "Bcc: danieltcrouch@gmail.com";
+    $headers .= "From:  ReligionAndStory<noreply@religionandstory.com>" . "\r\n" .
+                "Bcc:   danieltcrouch@gmail.com";
 
     mail($to, $subject, $message, $headers);
 }

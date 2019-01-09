@@ -41,7 +41,7 @@ var ScriptureChallenge = function( elements )
 	function setBibles()
 	{
 		$.post(
-			"utility/database.php",
+			"php/database.php",
 			{ action: "getBibles" },
 			function ( response ) {
 				NIV = JSON.parse( response ).niv;
@@ -54,7 +54,7 @@ var ScriptureChallenge = function( elements )
 	function setDuplicates()
 	{
 		$.post(
-			"utility/database.php",
+			"php/database.php",
 			{ action: "getDuplicates" },
 			function ( response ) {
 				DUPLICATES = [];
@@ -75,7 +75,7 @@ var ScriptureChallenge = function( elements )
 	function setLowScore()
 	{
 		$.post(
-			"utility/database.php",
+			"php/database.php",
 			{ action: "getLowScore" },
 			function ( response ) {
 				lowScore = parseInt( JSON.parse( response ) );
@@ -86,7 +86,7 @@ var ScriptureChallenge = function( elements )
 	function setHighestScore()
 	{
 		$.post(
-			"utility/database.php",
+			"php/database.php",
 			{ action: "getHighScoreInfo" },
 			function ( response ) {
 				var highScoreInfos = JSON.parse( response );
@@ -331,7 +331,7 @@ var ScriptureChallenge = function( elements )
 	function saveScore( name, email )
 	{
 	    $.post(
-			"utility/database.php",
+			"php/database.php",
 			{
 				name: name,
 				email: email,
@@ -348,7 +348,7 @@ var ScriptureChallenge = function( elements )
 	function sendNotificationEmail()
 	{
 		$.post(
-			"utility/database.php",
+			"php/database.php",
 			{
 				emails: JSON.stringify(highScoreEmails),
 				action: "sendEmail"
@@ -360,7 +360,7 @@ var ScriptureChallenge = function( elements )
 	function showScores()
 	{
 		$.post(
-			"utility/database.php",
+			"php/database.php",
 			{ action: "getScores" },
 			showScoresCallback
 		);
