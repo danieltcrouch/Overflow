@@ -41,7 +41,7 @@
 
     <!--Main-->
     <div id="rules" class="col-10 main">
-        <button class="bigButton" style="display: block; width: 10em; margin: 1em auto;" onclick="displayGame()">Play!</button>
+        <button class="button" style="display: block; width: 10em; margin: 1em auto;" onclick="displayGame()">Play!</button>
     </div>
     <div id="game" class="col-10 main" style="display: none;">
         <div class="col-10 center">
