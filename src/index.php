@@ -10,7 +10,7 @@
 
 	<!--Header-->
     <div class="col-10 header">
-        <a href="http://overflow.religionandstory.com/"><div class="title center clickable">R&amp;S Overflow</div></a>
+        <a href="<?php echo $homeUrl; ?>"><div class="title center clickable">R&amp;S Overflow</div></a>
     </div>
 
     <!--Menu-->
