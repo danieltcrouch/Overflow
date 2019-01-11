@@ -86,14 +86,14 @@ function saveScore( $name, $score, $email )
 function getBibles()
 {
 	return [
-	    "kjv" => file("http://overflow.religionandstory.com/scripture/resources/KJV.txt"),
-        "niv" => file("http://overflow.religionandstory.com/scripture/resources/NIV.txt")
+	    "kjv" => file("https://overflow.religionandstory.com/scripture/resources/KJV.txt"),
+        "niv" => file("https://overflow.religionandstory.com/scripture/resources/NIV.txt")
 	];
 }
 
 function getDuplicates()
 {
-	return file("http://overflow.religionandstory.com/scripture/resources/duplicates.txt");
+	return file("https://overflow.religionandstory.com/scripture/resources/duplicates.txt");
 }
 
 function sendEmail( $emails )
@@ -102,7 +102,7 @@ function sendEmail( $emails )
 
     $to = implode( ',', $addressList );
     $subject = "Scripture Challenge Game";
-    $message = "<p>Hey, someone has matched or surpassed your high score! Go <a href='http://overflow.religionandstory.com/scripture/'>here</a> to defend your honor!</p>";
+    $message = "<p>Hey, someone has matched or surpassed your high score! Go <a href='https://overflow.religionandstory.com/scripture/'>here</a> to defend your honor!</p>";
     $message = wordwrap($message, 70);
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";

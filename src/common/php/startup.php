@@ -3,7 +3,7 @@
 session_start();
 
 $project = "overflow";
-$homeUrl = "http://overflow.religionandstory.com";
+$homeUrl = "https://overflow.religionandstory.com";
 
 function includeHeadInfo()
 {
@@ -24,7 +24,7 @@ function includeModals()
 
 function getHelpImage()
 {
-    echo "http://religionandstory.com/common/images/question-mark.png";
+    echo "https://religionandstory.com/common/images/question-mark.png";
 }
 
 function getConstructionImage()
