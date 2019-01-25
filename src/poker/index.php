@@ -28,8 +28,9 @@
     <!--Main-->
     <div class="col-10 main">
         <div class="title center">This Page is under construction</div>
-        <div class="textBlock">
-            <div>Contact <a href="mailto:dcrouch1@harding.edu?Subject=Seven%20Dimensions" target="_top">Daniel Crouch</a> for any questions regarding the game.</div>
+        <br/>
+        <div class="textBlock center">
+            Contact <a class="link" href="mailto:dcrouch1@harding.edu?Subject=Seven%20Dimensions" target="_top">Daniel Crouch</a> for any questions regarding the game.
         </div>
         <div class="center"><img src="<?php getConstructionImage(); ?>" width="300px"></div>
     </div>
