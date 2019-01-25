@@ -4,7 +4,7 @@ session_start();
 $project    = "overflow";
 $siteTitle  = "R&S Overflow";
 $pageTitle  = "R&S Overflow";
-$image      = "https://overflow.religionandstory.com/images/church.jpg";
+$image      = "https://overflow.religionandstory.com/common/images/church.jpg";
 $description= "This site contains various overflow projects from Daniel Crouch and the Religion & Story network.";
 $keywords   = "IMDb,Scripture,Poker";
 $homeUrl    = "https://overflow.religionandstory.com";
