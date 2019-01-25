@@ -2,8 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Poker</title>
-    <?php includeHeadInfo(); ?>
+    <?php
+    $pageTitle  = "Poker Simulator";
+    $image      = "https://overflow.religionandstory.com/poker/images/poker.jpg";
+    $description= "This is a Texas Hold'em poker simulator (currently in development) designed to help you improve your poker skills.";
+    $keywords   = "Poker,Texas Hold'em,card game,simulator,statistics";
+    includeHeadInfo();
+    ?>
 </head>
 
 <body>
@@ -23,8 +28,10 @@
     <!--Main-->
     <div class="col-10 main">
         <div class="title center">This Page is under construction</div>
-        <br />
-        <div class="center"><img src="<?php getConstructionImage() ?>" width="300px"></div>
+        <div class="textBlock">
+            <div>Contact <a href="mailto:dcrouch1@harding.edu?Subject=Seven%20Dimensions" target="_top">Daniel Crouch</a> for any questions regarding the game.</div>
+        </div>
+        <div class="center"><img src="<?php getConstructionImage(); ?>" width="300px"></div>
     </div>
 
 </body>

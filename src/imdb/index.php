@@ -2,8 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IMDb Converter</title>
-    <?php includeHeadInfo(); ?>
+    <?php
+    $pageTitle  = "IMDb Converter";
+    $image      = "https://overflow.religionandstory.com/imdb/images/imdb.jpg";
+    $description= "Convert CSV files with movie titles to IMDBb movie lists.";
+    $keywords   = "IMDb,Criticker,spreadsheet,csv,conversion";
+    includeHeadInfo();
+    ?>
     <script src="javascript/imdb.js"></script>
 </head>
 

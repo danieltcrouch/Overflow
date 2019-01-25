@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Overflow</title>
     <?php includeHeadInfo(); ?>
 </head>
 

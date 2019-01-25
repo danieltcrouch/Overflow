@@ -2,8 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Scripture Challenge</title>
-    <?php includeHeadInfo(); ?>
+    <?php
+    $pageTitle  = "Scripture Challenge";
+    $image      = "https://overflow.religionandstory.com/scripture/images/scripture.jpg";
+    $description= "This is a game to test your knowledge of the Bible. Enter the Book, Chapter, and Verse for the quotes that appear.";
+    $keywords   = "Scripture,Bible,Word of God,book,chapter,verse,game,quiz,quote";
+    includeHeadInfo();
+    ?>
     <script src="javascript/game.js"></script>
 </head>
 
@@ -20,7 +25,7 @@
             <div style="text-align: left">
                 <strong>Rules:</strong>
                 <ul>
-                    <li>Enter the Book, Chapter, and Verse for the quotes that appear.  If you enter the wrong book, the game will end.</li>
+                    <li>Enter the Book, Chapter, and Verse for the quotes that appear. If you enter the wrong book, the game will end.</li>
                     <li>Books are worth 3pts, Chapters worth 1pt, and Verses 1pt. A bonus of 3pts is awarded if all fields are correct.</li>
                 </ul>
                 <strong>Notes:</strong>
