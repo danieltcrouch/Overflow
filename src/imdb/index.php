@@ -23,7 +23,7 @@
         </span></div>
         <div id="instructions" style="display: none">
             The IMDb Helper associates movie titles with the unique IDs provided by IMDb.
-            This can aid in uploading personal movie ratings to <a class="link" href="https://www.criticker.com/">Criticker</a>.
+            This can aid in uploading personal movie ratings to <a class="link" href="https://www.criticker.com/">Criticker</a> or <a class="link" href="https://letterboxd.com/">Letterboxd</a>.
             <br /><br />
             To use, upload a CSV file with the column header &ldquo;Title&rdquo; (may also include &ldquo;Rating&rdquo; and &ldquo;ID&rdquo;).
             Movie IDs will be fetched using their title. Results that do not match exactly will be printed for your review.
