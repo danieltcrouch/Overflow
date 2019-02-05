@@ -45,10 +45,7 @@
     </div>
 
     <!--Main-->
-    <div id="rules" class="col-10 main">
-        <button class="button" style="display: block; width: 10em; margin: 1em auto;" onclick="displayGame()">Play!</button>
-    </div>
-    <div id="game" class="col-10 main" style="display: none;">
+    <div id="game" class="col-10 main">
         <div class="col-10 center">
             <button id="niv" name="version" class="button selectedButton" style="width: 5em; margin: .25em;">NIV</button>
             <button id="kjv" name="version" class="button inverseButton" style="width: 5em; margin: .25em;">KJV</button>
@@ -76,6 +73,8 @@
 
 </body>
 <script>
+    $( document ).ready( startGame );
+
     function startGame()
     {
         var elements = {
@@ -90,13 +89,6 @@
 			rulesSpan: $('#rulesSpan')
         };
         startScriptureChallenge( elements );
-    }
-
-    function displayGame()
-    {
-        $('#rules').hide();
-        $('#game').show();
-        startGame();
     }
 </script>
 <?php includeModals(); ?>
