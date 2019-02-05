@@ -59,9 +59,9 @@
         	<div id="verseDisplay">Loading First Verse...</div>
         </div>
 
-        <input id="book" class="input" type="text" placeholder="Book">
-        <input id="chapter" class="input" type="number" placeholder="Chapter">
-        <input id="verse" class="input" type="number" placeholder="Verse">
+        <input id="book" type="text" class="input" placeholder="Book">
+        <input id="chapter" type="number" class="input" placeholder="Chapter">
+        <input id="verse" type="number" class="input" placeholder="Verse">
         <div class="col-10 center">
             <button id="submitButton" class="button" style="width: 10em; margin: 1em auto;">Submit</button>
         </div>
