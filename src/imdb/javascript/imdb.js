@@ -24,8 +24,8 @@ function displayMovieCallback( response )
                    "Or go here: <a class='link' href='https://www.google.com/search?q=IMDB%20" + movieResponse.search + "'>Google</a>";
         if ( movieResponse.isSuccess )
         {
-            html = "<strong>" + movieResponse.title + "</strong><br />" +
-                   "(" + movieResponse.id + ")<br /><br />" +
+            html = "<strong>" + movieResponse.title + "</strong> (" + movieResponse.year + ")<br />" +
+                   "<strong>ID:</strong> " + movieResponse.id + "<br /><br />" +
                    "<img src='" + movieResponse.poster + "' height='300px' alt='Movie Poster'>";
         }
         showMessage( "Movie Match", html );

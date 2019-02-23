@@ -1,4 +1,25 @@
 <?php
+include_once("omdb.php");
+
+function getColumns( $firstRow )
+{
+    $result['iIndex'] = array_search( "ID", $firstRow, true );
+    $result['tIndex'] = array_search( "Title", $firstRow, true );
+    $result['aIndex'] = array_search( "Author", $firstRow, true );
+    $result['yIndex'] = array_search( "Year", $firstRow, true );
+    $result['cIndex'] = array_search( "Review", $firstRow, true );
+    $result['rIndex'] = array_search( "Rating", $firstRow, true );
+    $result['pIndex'] = array_search( "Image", $firstRow, true );
+    $result['uIndex'] = array_search( "URL", $firstRow, true );
+
+    //todo
+    $result['isTitlePresent'] = $result['tIndex'] !== false;
+    $result['isRatingPresent'] = $result['rIndex'] !== false;
+    $result['isIdPresent'] = $result['iIndex'] !== false;
+
+    return $result;
+}
+
 function isSafe( $fileName )
 {
     $isSafe['isSuccess'] = true;
@@ -15,19 +36,6 @@ function isSafe( $fileName )
     }
 
     return $isSafe;
-}
-
-function getColumns( $firstRow )
-{
-    $result['tIndex'] = array_search( "Title", $firstRow, true );
-    $result['rIndex'] = array_search( "Rating", $firstRow, true );
-    $result['iIndex'] = array_search( "ID", $firstRow, true );
-
-    $result['isTitlePresent'] = $result['tIndex'] !== false;
-    $result['isRatingPresent'] = $result['rIndex'] !== false;
-    $result['isIdPresent'] = $result['iIndex'] !== false;
-
-    return $result;
 }
 
 function getSearchTitle( $title )
@@ -91,12 +99,13 @@ function parseFile( $originalName )
         $index = 1;
         $limitReached = false;
         $result['message'] = [];
-        $columns = getColumns( fgetcsv( $originalFile, 200, "," ) );
+        $columns = getColumns( fgetcsv( $originalFile ) );
 
         $row = fgetcsv( $originalFile, 200 );
         while ( $row !== false && $columns['isTitlePresent'] && !$limitReached )
         {
             $movie['title'] = trim( $row[$columns['tIndex']] );
+            $movie['year'] = trim( $row[$columns['yIndex']] );
             $movie['rating'] = $columns['isRatingPresent'] ? trim( $row[$columns['rIndex']] ) : "--";
             $movie['id'] = $columns['isIdPresent'] ? trim( $row[$columns['iIndex']] ) : "";
 
@@ -105,7 +114,8 @@ function parseFile( $originalName )
                 if ( empty( $movie['id'] ) )
                 {
                     $searchTitle = urlencode( $movie['title'] );
-                    $url = "http://www.omdbapi.com/?t=$searchTitle&y=&plot=short&r=json&apikey=522c6900";
+                    $searchYear = $movie['year'] ?? "";
+                    $url = "http://www.omdbapi.com/?t=$searchTitle&y=$searchYear&plot=short&r=json&apikey=$apiKey";
                     $response = getResponse( $url );
 
                     $limitReached = $response['message'] === "Request limit reached!";

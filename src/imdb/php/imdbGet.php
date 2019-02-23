@@ -1,4 +1,6 @@
 <?php
+include_once("omdb.php");
+
 function getMovie( $title )
 {
     $result['isSuccess'] = false;
@@ -6,14 +8,15 @@ function getMovie( $title )
 
     $title = trim( $title );
     $searchTitle = urlencode( $title );
-    //OMDB API now requires an API Key (&apikey=522c6900) -> go to their site if this one stops working
-    $url = "http://www.omdbapi.com/?t=$searchTitle&y=&plot=short&r=json&apikey=522c6900";
+    //OMDB API requires API Key -> go to their site if this one stops working
+    $url = "http://www.omdbapi.com/?t=$searchTitle&y=&plot=short&r=json&apikey=$apiKey";
     $response = json_decode( file_get_contents( $url ) );
 
     if ( $response->Response === "True" )
     {
         $result['isSuccess'] = true;
         $result['title'] = $response->Title;
+        $result['year'] = $response->Year;
         $result['id'] = $response->imdbID;
         $result['poster'] = $response->Poster;
     }
