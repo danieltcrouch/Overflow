@@ -40,10 +40,10 @@
     <!--Main-->
     <div class="col-10 main">
         <div class="center">
-            <input id="getMovie" class="button" style="width: 10em; margin-bottom: 1em;" onclick="getMovie()" value="Find Movie">
+            <input id="getMovie" type="button" class="button" style="width: 10em; margin-bottom: 1em;" onclick="getMovie()" value="Find Movie">
         </div>
         <div class="center">
-            <input id="submit" class="button" style="width: 10em; margin-bottom: 1em;" onclick="uploadFile()" value="Upload Movies">
+            <input id="submit" type="button" class="button" style="width: 10em; margin-bottom: 1em;" onclick="uploadFile()" value="Upload Movies">
         </div>
         <div class="center">
             <!-- Hidden Input -->
