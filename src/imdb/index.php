@@ -33,6 +33,7 @@
             When the conversion is complete, a download should start with the IDs, titles, and ratings in one file.
             <br /><br />
             Contact <a class="link" href="mailto:dcrouch1@harding.edu?Subject=IMDb%20Converter" target="_top">Daniel Crouch</a> regarding any questions or issues.
+            https://paypal.me/danieltcrouch?locale.x=en_US
         </div>
     </div>
 

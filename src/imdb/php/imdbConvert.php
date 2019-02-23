@@ -105,8 +105,7 @@ function parseFile( $originalName )
                 if ( empty( $movie['id'] ) )
                 {
                     $searchTitle = urlencode( $movie['title'] );
-                    //OMDB API now requires an API Key (&apikey=8f0ce8a6) -> go to their site if this one stops working
-                    $url = "http://www.omdbapi.com/?t=$searchTitle&y=&plot=short&r=json&apikey=8f0ce8a6";
+                    $url = "http://www.omdbapi.com/?t=$searchTitle&y=&plot=short&r=json&apikey=522c6900";
                     $response = getResponse( $url );
 
                     $limitReached = $response['message'] === "Request limit reached!";

@@ -102,7 +102,7 @@ function parseFile( $originalName )
 
             if ( !empty( $movie['id'] ) )
             {
-                $url = "http://www.omdbapi.com/?i=$movie[id]&y=&plot=short&r=json&apikey=8f0ce8a6";
+                $url = "http://www.omdbapi.com/?i=$movie[id]&y=&plot=short&r=json&apikey=522c6900";
                 $response = getResponse( $url );
 
                 $limitReached = $response['message'] === "Request limit reached!";
