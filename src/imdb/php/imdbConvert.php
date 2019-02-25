@@ -83,11 +83,12 @@ function getMessage( $index, $response, $movie )
 
 function makeCSV( $data )
 {
-    return implode( ",", array( $data['id'], json_encode( $data[title] ), $data['rating'] ) ) . "\n";
+    return implode( ",", array( $data['id'], json_encode( $data['title'] ), $data['rating'] ) ) . "\n";
 }
 
 function parseFile( $originalName )
 {
+    global $apiKey;
     $originalFile = fopen( $originalName, "r" );
     $result = isSafe( $originalName );
 

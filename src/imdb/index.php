@@ -33,7 +33,7 @@
             When the conversion is complete, a download should start with the IDs, titles, and ratings in one file.
             <br /><br />
             Contact <a class="link" href="mailto:dcrouch1@harding.edu?Subject=IMDb%20Converter" target="_top">Daniel Crouch</a> regarding any questions or issues.<br/>
-            This tool utilizes the OMDb Api which requires a small fee; please consider donating to my <a class="link" href="https://paypal.me/danieltcrouch?locale.x=en_US">Patreon</a> to keep this tool available.
+            This tool utilizes the OMDb Api which requires a small fee; please consider <a class="link" href="https://paypal.me/danieltcrouch?locale.x=en_US">donating</a> to keep this tool available.
         </div>
     </div>
 

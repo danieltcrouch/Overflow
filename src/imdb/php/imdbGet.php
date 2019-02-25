@@ -9,6 +9,7 @@ function getMovie( $title )
     $title = trim( $title );
     $searchTitle = urlencode( $title );
     //OMDB API requires API Key -> go to their site if this one stops working
+    global $apiKey;
     $url = "http://www.omdbapi.com/?t=$searchTitle&y=&plot=short&r=json&apikey=$apiKey";
     $response = json_decode( file_get_contents( $url ) );
 
