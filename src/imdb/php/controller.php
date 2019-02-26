@@ -1,12 +1,12 @@
 <?php
 include_once("omdb.php");
 
-if ( isset( $_POST['action'] ) && function_exists( $_POST['action'] ) )
+if ( isset( $_FILES['file'] ) || ( isset( $_POST['action'] ) && function_exists( $_POST['action'] ) ) )
 {
 	$action = $_POST['action'];
     $result = null;
 
-	if ( $action === "convert" )
+	if ( isset( $_FILES['file'] ) )
 	{
         $result = convert( $_FILES['file'] );
 	}

@@ -28,7 +28,7 @@
             To use, upload a CSV file with the column headers &ldquo;Title&rdquo; and/or &ldquo;ID&rdquo; (may also include &ldquo;Year&rdquo;).
             Movie IDs will be fetched using their title and year or <i>vice versa</i>. Results that do not match exactly will be printed for your review.
             Beware that movies may not match as intended, especially if the year is not included.
-            If an ID and title are provided, that row will be skipped.
+            If both an ID and title are provided, that row will be skipped.
             Files with over 500 movies have a hard time completing; to ensure completion, include IDs or break the file into multiple parts.
             When the conversion is complete, a download should start with the IDs, titles, and years in one file.
             <br /><br />

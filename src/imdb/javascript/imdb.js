@@ -55,14 +55,13 @@ function uploadFileCallback()
         $.ajax({
             url:    "php/controller.php",
             type:   "POST",
-            action: "convert",
             data:   data,
             processData: false,
             contentType: false,
             timeout: 90000,
             error: function( e ) { displayInfo( "An error has occurred.", true ) },
             success: function( response ) {
-                response = JSON.parse( response );
+                try { response = JSON.parse( response ); } catch(e){}
                 if ( response.isSuccess && response.content )
                 {
                     downloadFile( response.content );
@@ -70,7 +69,7 @@ function uploadFileCallback()
                 }
                 else
                 {
-                    displayInfo( response.message, true );
+                    displayInfo( response.message || "An error has occurred.", true );
                 }
             }
         });
@@ -105,6 +104,7 @@ function displayRiskTitles( message )
         if ( message[i] && message[i].index )
         {
             var movie = message[i];
+            movie.title = movie.title || movie.id;
             riskMovies.push( movie );
             riskTitleMessage += movie.index + ". " + movie.title + " | <span id='span" + movie.index + "' class='link'>" + (movie.newTitle || "No Movie Found") + "</span><br/>";
         }

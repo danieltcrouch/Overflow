@@ -40,7 +40,7 @@ function getDataFromResponse( $response )
 function getMovieByTitle( $title, $year = null )
 {
     $title = trim( $title );
-    $searchTitle = urlencode( $title );
+    $searchTitle = preg_replace( '/[^A-Za-z0-9 ]/', '', $title );
     $result = requestOMDB( [ 't' => $searchTitle, 'y' => $year ] );
     $result['search'] = $title;
     return $result;
@@ -57,6 +57,10 @@ function getMovieById( $id )
 
 function getColumns( $firstRow )
 {
+    array_walk( $firstRow, function(&$value) {
+        $value = preg_replace( '/[^A-Za-z0-9 ]/', '', $value );
+    });
+
     $result['iIndex'] = array_search( "ID", $firstRow, true );
     $result['tIndex'] = array_search( "Title", $firstRow, true );
     $result['aIndex'] = array_search( "Author", $firstRow, true );
@@ -83,7 +87,7 @@ function isSafe( $fileName, $columns )
         $isSafe['message'] = "Sorry, only CSV files are allowed.";
         $isSafe['isSuccess'] = false;
     }
-    if ( $columns['tIndex'] !== false && $columns['iIndex'] !== false )
+    if ( $columns['tIndex'] === false && $columns['iIndex'] === false )
     {
         $isSafe['message'] = "Sorry, no Title or ID columns found .";
         $isSafe['isSuccess'] = false;
@@ -97,10 +101,11 @@ function getMovieWithAttempts( $id, $title, $year )
     global $INTERNAL_ERROR;
     global $LIMIT_ERROR;
 
+    $result = null;
     $attempts = 0;
     do
     {
-        if ( isset( $title ) )
+        if ( !empty( $title ) )
         {
             $result = getMovieByTitle( $title, $year );
         }
@@ -110,7 +115,7 @@ function getMovieWithAttempts( $id, $title, $year )
         }
 
         $attempts++;
-    } while ( $result['message'] === $INTERNAL_ERROR && $attempts < 5 );
+    } while ( $result['message'] === $INTERNAL_ERROR && $attempts < 3 );
 
     if ( $result['message'] === $LIMIT_ERROR )
     {
@@ -122,8 +127,9 @@ function getMovieWithAttempts( $id, $title, $year )
 
 function getMessage( $index, $results, $searchTitle )
 {
+    global $INTERNAL_ERROR;
     global $SEARCH_ERROR;
-    $result = $results ? $results['message'] : "Daily Limit Reached";
+    $result = "";
 
     if ( $results )
     {
@@ -131,13 +137,24 @@ function getMessage( $index, $results, $searchTitle )
         {
             if ( strcasecmp( $results['title'], $searchTitle ) != 0 )
             {
-                $result = array( "index" => $index, "title" => $results['title'], "newTitle" => $searchTitle, "id" => $results['id'], "poster" => $results['image'] );
+                $result = array( "index" => $index, "title" => $searchTitle, "newTitle" => $results['title'], "id" => $results['id'], "poster" => $results['image'] );
             }
         }
-        elseif ( $results['message'] === $SEARCH_ERROR )
+        else
         {
-            $result = array( "index" => $index, "title" => $searchTitle, "newTitle" => "", "id" => $SEARCH_ERROR, "poster" => "" );
+            if ( $results['message'] === $SEARCH_ERROR )
+            {
+                $result = array( "index" => $index, "title" => $searchTitle, "newTitle" => "", "id" => $SEARCH_ERROR, "poster" => "" );
+            }
+            else
+            {
+                $result = $index . ". " . $results['message'];
+            }
         }
+    }
+    else
+    {
+        $result = "<i>$INTERNAL_ERROR</i>";
     }
 
     return $result;
@@ -164,14 +181,14 @@ function parseFile( $originalName )
         $row = fgetcsv( $originalFile );
         while ( $row !== false && !$limitReached )
         {
-            $id     = trim( $row[$columns['iIndex']] );
-            $title  = trim( $row[$columns['tIndex']] );
-            $year   = trim( $row[$columns['yIndex']] );
+            $id     = $columns['iIndex'] !== false ? trim( $row[$columns['iIndex']] ) : "";
+            $title  = $columns['tIndex'] !== false ? trim( $row[$columns['tIndex']] ) : "";
+            $year   = $columns['yIndex'] !== false ? trim( $row[$columns['yIndex']] ) : "";
 
             if ( isset( $title ) || isset( $id ) ) //not a blank line
             {
                 $movie = [ "id" => "", "title" => "", "year" => "" ];
-                if ( !( isset( $title ) && isset( $id ) ) ) //not both already there
+                if ( empty( $title ) || empty( $id ) ) //not both already there
                 {
                     $movie = getMovieWithAttempts( $id, $title, $year );
                     $limitReached = $movie === false;
@@ -198,29 +215,12 @@ function parseFile( $originalName )
     return $result;
 }
 
-//function makeUTF8( $mixed )
-//{
-//    if ( is_array( $mixed ) )
-//    {
-//        foreach ( $mixed as $key => $value )
-//        {
-//            $mixed[$key] = makeUTF8( $value );
-//        }
-//    }
-//    else if ( is_string( $mixed ) )
-//    {
-//        return utf8_encode( $mixed );
-//    }
-//    return $mixed;
-//}
-
 function convert( $file )
 {
     move_uploaded_file( $file['tmp_name'], $file['name'] );
 
     $result = parseFile( $file['name'] );
     return $result;
-    //return makeUTF8( $result );
 }
 
 ?>
