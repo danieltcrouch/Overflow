@@ -8,8 +8,11 @@ function displayMovie( response )
     if ( response )
     {
         $.post(
-            "php/imdbGet.php",
-            {title: response},
+            "php/controller.php",
+            {
+                action: "getMovieByTitle",
+                title:  response
+            },
             displayMovieCallback
         );
     }
@@ -26,7 +29,7 @@ function displayMovieCallback( response )
         {
             html = "<strong>" + movieResponse.title + "</strong> (" + movieResponse.year + ")<br />" +
                    "<strong>ID:</strong> " + movieResponse.id + "<br /><br />" +
-                   "<img src='" + movieResponse.poster + "' height='300px' alt='Movie Poster'>";
+                   "<img src='" + movieResponse.image + "' height='300px' alt='Movie Poster'>";
         }
         showMessage( "Movie Match", html );
     }
@@ -50,18 +53,19 @@ function uploadFileCallback()
         data.append( "file", file, file.name );
 
         $.ajax({
-            url: "php/imdbConvert.php",
-            type: "POST",
-            data: data,
+            url:    "php/controller.php",
+            type:   "POST",
+            action: "convert",
+            data:   data,
             processData: false,
             contentType: false,
             timeout: 90000,
             error: function( e ) { displayInfo( "An error has occurred.", true ) },
             success: function( response ) {
                 response = JSON.parse( response );
-                if ( response.isSuccess && response.contents )
+                if ( response.isSuccess && response.content )
                 {
-                    downloadFile( response.contents );
+                    downloadFile( response.content );
                     displayRiskTitles( response.message );
                 }
                 else
@@ -87,7 +91,7 @@ function downloadFile( text )
     document.body.appendChild( a );
     a.href = url;
     a.style = "display: none";
-    a.download = "UpdatedMovies.csv";
+    a.download = "MovieList.csv";
     a.click();
     window.URL.revokeObjectURL( url );
 }
