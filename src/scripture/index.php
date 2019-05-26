@@ -1,4 +1,4 @@
-<?php include(getSubPath() . "common/php/startup.php"); ?>
+<?php include("$_SERVER[DOCUMENT_ROOT]/common/php/startup.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
