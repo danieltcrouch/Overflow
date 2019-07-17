@@ -19,9 +19,9 @@
     <div class="col-10 header">
         <div class="title center"><span class="clickable">
             IMDb Converter
-            <img style="width: .5em; padding-bottom: .25em" src="<?php getHelpImage() ?>" alt="help">
+            <img id="helpIcon" style="width: .5em; padding-bottom: .25em" src="<?php getHelpImage() ?>" alt="help">
         </span></div>
-        <div id="instructions" style="display: none">
+        <div id="helpText" style="display: none">
             The IMDb Converter associates movie titles with the unique IDs provided by IMDb.
             This can aid in uploading personal movie ratings to <a class="link" href="https://www.criticker.com/">Criticker</a> or <a class="link" href="https://letterboxd.com/">Letterboxd</a>.
             <br /><br />
