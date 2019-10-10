@@ -115,8 +115,8 @@ var ScriptureChallenge = function( elements )
 		});
 		setRadioCallback( "version", function () {
 			if ( isNowNiv() !== isNiv ) {
-				( currentScore === 0 ) ? nextRound() : submitAnswer();
 				isNiv = !isNiv;
+				( currentScore === 0 ) ? nextRound() : submitAnswer();
 			}
 		});
 	}
